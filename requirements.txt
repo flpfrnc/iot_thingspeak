@@ -1,4 +1,4 @@
-psycopg2-binary==2.9
+psycopg2-binary==2.8.6
 asgiref==3.4.1
 certifi==2021.5.30
 charset-normalizer==2.0.2
