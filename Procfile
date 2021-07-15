@@ -1,1 +1,1 @@
-web: gunicorn thingspeakdata.wsgi:application --preload --log-file - 
+web: gunicorn thingspeak.wsgi:application --preload --log-file - 
