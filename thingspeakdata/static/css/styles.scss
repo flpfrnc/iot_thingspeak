@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+body {
+  font-family: Roboto, sans-serif;
+  background-image: radial-gradient(rgba(131, 131, 131, 0.2) 0.5%, rgba(255, 255, 255, 0.5));
+}
+
+.wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    .navbar {
+        width: 100%;
+        height: 5rem;
+        background-image: linear-gradient(to bottom, rgba(131, 131, 131, 0.9) 0.5%, rgba(255, 255, 255, 0.5));
+    }
+    
+    .footer {
+        width: 100%;
+        height: 5rem;
+        background-image: linear-gradient(to top, rgba(131, 131, 131, 0.9) 0.5%, rgba(255,255,255, 0.5));
+    }
+    
+    .container-wrapper {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+        .data {
+            justify-content: center;
+            width: 80%;
+            height: 100%;
+            
+            .temperature-container{
+                background: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0px 0px 7px lightgray;
+                border-radius: 10px;
+                padding: 1rem;
+                margin: 0.5rem;
+            }
+
+            #temperatura {
+                margin: 2px;
+            }
+
+            .milimetros-container{
+                background: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0px 0px 7px lightgray;
+                border-radius: 10px;
+                padding: 1rem;
+                margin: 0.5rem;
+            }
+
+            #milimetros {
+                margin: 2px;
+            }
+
+            .umidade-container{
+                background: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0px 0px 7px lightgray;
+                border-radius: 10px;
+                padding: 1rem;
+                margin: 0.5rem;
+            }
+
+            #umidade {
+                margin: 2px;
+            }
+            
+            .pressao-container{
+                background: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0px 0px 7px lightgray;
+                border-radius: 10px;
+                padding: 1rem;
+                margin: 0.5rem;
+            }
+
+            #pressao {
+                margin: 2px;
+            }
+        }
+    }   
+}
+
+
+
+ 

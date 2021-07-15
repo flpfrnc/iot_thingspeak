@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+{% load sass_tags %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% sass_src 'css/styles.scss'%}">
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="navbar"></div>
+        <div class="container-wrapper">
+            <div class="data" style="display: flex; flex-wrap: wrap ">
+                <div class="temperature-container"><div id="temperatura"></div></div>
+                <div class="milimetros-container"><div id="milimetros"></div></div>
+                <div class="umidade-container"><div id="umidade"></div></div>
+                <div class="pressao-container"><div id="pressao"></div></div>
+            </div>
+        </div>
+        <div class="footer"></div>
+    </div>
+
+<script>
+`use strict`
+
+//calling function at page load
+window.onload = function() {
+var tempOptions = {
+  chart: {
+    type: 'area',
+    height: 300,
+    width: 500,
+  },
+  series: [{
+    name: 'Temperatura °C',
+    data: {{contextos.temperatura|safe}}
+  }],
+  xaxis: {
+    categories: {{contextos.data|safe}}
+  },
+    title: {
+    text: 'Temperatura °C',
+    align: 'left'
+  },
+}
+
+//second chart
+var rainOptions = {
+  chart: {
+    type: 'area',
+    height: 300,
+    width: 500,
+  },
+  series: [{
+    name: 'mm Chuva',
+    data: {{contextos.milimetros|safe}}
+  }],
+  xaxis: {
+    categories: {{contextos.data|safe}}
+  },
+  title: {
+    text: 'Milímetros de Chuva',
+    align: 'left'
+  },
+}
+
+//third chart
+var umidityOptions = {
+  chart: {
+    type: 'area',
+    height: 300,
+    width: 500,
+  },
+  series: [{
+    name: 'Umidade relativa do ar',
+    data: {{contextos.umidade|safe}}
+  }],
+  xaxis: {
+    categories: {{contextos.data|safe}}
+  },
+  title: {
+    text: 'Umidade relativa',
+    align: 'left'
+  },
+}
+
+//fourth chart
+var pressureOptions = {
+  chart: {
+    type: 'area',
+    height: 300,
+    width: 500,
+  },
+  series: [{
+    name: 'Pressão atmosférica',
+    data: {{contextos.pressaoatmosferica|safe}}
+  }],
+  xaxis: {
+    categories: {{contextos.data|safe}}
+  },
+  title: {
+    text: 'Pressão atmosférica',
+    align: 'left'
+  },
+}
+
+var temperaturaChart = new ApexCharts(document.querySelector("#temperatura"), tempOptions);
+temperaturaChart.render();
+
+var rainChart = new ApexCharts(document.querySelector("#milimetros"), rainOptions);
+rainChart.render();
+
+var umidityChart = new ApexCharts(document.querySelector("#umidade"), umidityOptions);
+umidityChart.render();
+
+var pressureChart = new ApexCharts(document.querySelector("#pressao"), pressureOptions);
+pressureChart.render();
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</body>
+</html>
